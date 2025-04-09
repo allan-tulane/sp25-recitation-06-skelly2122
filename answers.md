@@ -16,10 +16,11 @@ The entries increase exponentially as the index increases
 Each Fibonacci number F(i) is computed F(n-i+1) times
 For example, F(n-1) is computed twice, F(n-2) is computed three times, F(n-3) is computed five times, etc.
 This pattern shows the number of times each subproblem is recomputed, demonstrating the exponential inefficiency of the recursive algorithm.
+
 6) When computing F(n) using the top-down memoization approach:
 Each value F(i) is computed exactly once for 0 ≤ i ≤ n
 Once computed, the value is stored in the fibs array and reused
-The maximum number of times fib_top_down(i) will be called for any value i is 1, plus the number of times it appears as a direct subproblem in other calls
+Each fib_top_down(i) is called at most 2 times (e.g., once by its left parent and once by its right parent in the recursion tree). After the first call, the result is cached, so subsequent calls return immediately. The maximum is 2, not dependent on subproblem appearances.
 Work: Since each F(i) is computed exactly once and each computation takes constant time (excluding recursive calls), the total work is O(n).
 
 Span: The maximum depth of recursion is n, so the span is O(n).
