@@ -4,20 +4,20 @@ Name: Samuel Kelly
 
 Place all written answers from recitation-06.md here for easier grading.
 
-2) The work recurrence for fib_recursive(n) is: W(n) = W(n-1) + W(n-2) + O(1)
+Q2) The work recurrence for fib_recursive(n) is: W(n) = W(n-1) + W(n-2) + O(1)
 This is the same recurrence relation as the Fibonacci sequence itself, but with an additional constant factor.
 The solution to this recurrence is W(n) = O(φ^n), where φ ≈ 1.618 is the golden ratio.
 
-3) The span recurrence for fib_recursive(n) is: S(n) = max(S(n-1), S(n-2)) + O(1) = S(n-1) + O(1) (since S(n-1) > S(n-2))
+Q3) The span recurrence for fib_recursive(n) is: S(n) = max(S(n-1), S(n-2)) + O(1) = S(n-1) + O(1) (since S(n-1) > S(n-2))
 Solving this, we get S(n) = O(n).
 
-4) Looking at the counts list, we can observe that:
+Q4) Looking at the counts list, we can observe that:
 The entries increase exponentially as the index increases
 Each Fibonacci number F(i) is computed F(n-i+1) times
 For example, F(n-1) is computed twice, F(n-2) is computed three times, F(n-3) is computed five times, etc.
 This pattern shows the number of times each subproblem is recomputed, demonstrating the exponential inefficiency of the recursive algorithm.
 
-6) When computing F(n) using the top-down memoization approach:
+Q6) When computing F(n) using the top-down memoization approach:
 Each value F(i) is computed exactly once for 0 ≤ i ≤ n
 Once computed, the value is stored in the fibs array and reused
 Each fib_top_down(i) is called at most 2 times (e.g., once by its left parent and once by its right parent in the recursion tree). After the first call, the result is cached, so subsequent calls return immediately. The maximum is 2, not dependent on subproblem appearances.
@@ -25,7 +25,7 @@ Work: Since each F(i) is computed exactly once and each computation takes consta
 
 Span: The maximum depth of recursion is n, so the span is O(n).
 
-8) In the bottom-up approach:
+Q8) In the bottom-up approach:
 Each F(i) is computed exactly once
 For each F(i) computation, we read F(i-1) and F(i-2), so each F(i) is read at most twice (except F(0) and F(1))
 The maximum number of times any F(i) will be read is 2
